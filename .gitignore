@@ -11,3 +11,17 @@
 *.lai
 *.la
 *.a
+
+*~
+CMakeLists.txt.user
+
+*.pyc
+*.h5
+build/
+lib/
+msg_gen/
+*.wpr
+*.wpu
+*.swp
+.directory/
+ros/haptics/pr2_gripper_accelerometer/src/pr2_gripper_accelerometer/

@@ -1,0 +1,25 @@
+<package>
+  <name>biotac_driver</name>
+  <version>0.1.0</version>
+  <description>
+    This stack contains the necessary libraries for reading, publishing and logging data from the SynTouch BioTac sensors.
+  </description>
+  <license>BSD</license>
+
+  <url>http://wiki.ros.org/biotac_driver</url>
+
+  <author email="imcmahon@grasp.upenn.edu">Ian McMahon</author>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>biotac_logger</run_depend>
+  <run_depend>biotac_log_parser</run_depend>
+  <run_depend>biotac_sensors</run_depend>
+  <run_depend>cheetah_lib</run_depend>
+  <run_depend>rosjson_time</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

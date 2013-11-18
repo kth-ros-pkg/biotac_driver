@@ -1,0 +1,26 @@
+<package>
+ <name>biotac_log_parser</name>
+  <version>0.1.0</version>
+  <description>
+    hdf5_log_parser
+  </description>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/biotac_log_parser</url>
+
+  <author email="lorenzo.riano@berkeley.edu">Lorenzo Riano</author>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rospy</build_depend>
+  <build_depend>biotac_sensors</build_depend>
+  <build_depend>rosjson_time</build_depend>
+  <build_depend>rosbag</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>biotac_sensors</run_depend>
+  <run_depend>rosjson_time</run_depend>
+  <run_depend>rosbag</run_depend>
+
+</package>
