@@ -4,7 +4,7 @@ biotac_driver
 Overview
 ---------------------------------------------
 
-Biotac low level driver and ROS nodes from UPenn's `biotac_stack` contained in the **Penn-haptics-bolt** repository (https://github.com/https://github.com/IanTheEngineer/Penn-haptics-bolt.git).
+Biotac low level driver and ROS nodes from UPenn's `biotac_stack` contained in the **Penn-haptics-bolt** repository (https://github.com/IanTheEngineer/Penn-haptics-bolt.git).
 
 The following instructions are from the README.md file in the **Penn-haptics-bolt** respository. For more details also look at the UPenn Haptics group's wiki page: http://bolt-haptics.seas.upenn.edu/index.php/Main/HomePage 
 
