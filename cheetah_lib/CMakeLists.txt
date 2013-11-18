@@ -17,7 +17,7 @@ ExternalProject_Add(cheetah_
 
 add_custom_target(
   copy_cheetah ALL
-  COMMAND cmake -E copy ${CMAKE_CURRENT_BINARY_DIR}/src/cheetah_/cheetah.so ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_LIB_DESTINATION}/libcheetah.so)
+  COMMAND cmake -E copy ${CMAKE_CURRENT_BINARY_DIR}/src/cheetah_/cheetah.so ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_LIB_DESTINATION}/cheetah.so)
 
 add_library(cheetah SHARED)
 set_target_properties(cheetah PROPERTIES LINKER_LANGUAGE CXX)
