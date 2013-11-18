@@ -78,9 +78,3 @@ http://bolt-haptics.seas.upenn.edu/index.php/Software/MatlabGUI
 
 
 
-Extracting Audio
----------------------------------------------
-
-rosrun extract_bag_audio audio_to_mp3.py <full_bagfile_path> /audio <full_mp3_file_path>
-
-
