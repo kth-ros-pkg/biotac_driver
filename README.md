@@ -1,10 +1,10 @@
-biotac_drivers
+biotac_driver
 ==============
 
 Overview
 ---------------------------------------------
 
-Biotac low level drivers and ROS nodes from UPenn's `biotac_stack` contained in the **Penn-haptics-bolt** repository (https://github.com/https://github.com/IanTheEngineer/Penn-haptics-bolt.git).
+Biotac low level driver and ROS nodes from UPenn's `biotac_stack` contained in the **Penn-haptics-bolt** repository (https://github.com/https://github.com/IanTheEngineer/Penn-haptics-bolt.git).
 
 The following instructions are from the README.md file in the **Penn-haptics-bolt** respository. For more details also look at the UPenn Haptics group's wiki page: http://bolt-haptics.seas.upenn.edu/index.php/Main/HomePage 
 
@@ -12,7 +12,8 @@ The following instructions are from the README.md file in the **Penn-haptics-bol
 Installing 
 ---------------------------------------------
 
-### Cheetah USB driver ###
+### Cheetah USB rules ###
+In order to be able to read the Biotac data via the Cheetah SPI-USB board you first have to copy the udev rules
 
 1. Download the Cheetah SPI board drivers tp-usb-drivers-v2.10.zip from http://www.totalphase.com/products/cheetah_spi/
  
@@ -24,6 +25,23 @@ Installing
 
 ### ROS package installation ###
 
+After copying the Cheetah udev rules you can download and compile the ROS package. Also make sure you have a working catkin workspace (look at the ROS tutorials).
+
+Download the package to the catkin workspace:
+
+    cd ~/catkin_ws/src/
+    git clone -b <ros_distro> https://github.com/kth-ros-pkg/biotac_driver.git
+
+Where `<ros-distro>` can be the **groovy** or **hydro** branch.
+
+Otherwise you can use ROS's **wstool**:
+
+    cd ~/catkin_ws/src/
+    wstool set biotac_driver --git https://github.com/kth-ros-pkg/biotac_driver.git -v <ros_distro>
+
+Then compile the workspace:
+
+    cd ~/catkin_ws && catkin_make
 
 Electrical connections
 ---------------------------------------------
