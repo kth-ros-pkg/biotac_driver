@@ -37,7 +37,9 @@ Where `<ros-distro>` can be the **groovy** or **hydro** branch.
 Otherwise you can use ROS's **wstool**:
 
     cd ~/catkin_ws/src/
+    wstool init
     wstool set biotac_driver --git https://github.com/kth-ros-pkg/biotac_driver.git -v <ros_distro>
+    wstool update biotac_driver
 
 Then compile the workspace:
 
