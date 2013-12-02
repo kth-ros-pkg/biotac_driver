@@ -61,11 +61,11 @@ class BioTacListener:
     # Grab directory
     self.package_dir = roslib.packages.get_pkg_dir('biotac_logger')
     # Check for a 'data' directory
-    dir_status = self.check_dir( self.package_dir + '/data' )
+    dir_status = self.check_dir( '~/.ros/biotac_data' )
     if dir_status:
       rospy.loginfo('The ''data'' directory was successfully created.')
     # Set output filename
-    self.fileName =  self.package_dir + '/data/' + rospy.get_param(self.file_param,'default.json')
+    self.fileName =  '~/.ros/biotac_data/' + rospy.get_param(self.file_param,'default.json')
     if not self.fileName.endswith('.json'):
       self.fileName = self.fileName + '.json'
     # Create initial file - delete existing file with same name 
