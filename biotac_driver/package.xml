@@ -2,7 +2,8 @@
   <name>biotac_driver</name>
   <version>0.1.0</version>
   <description>
-    This stack contains the necessary libraries for reading, publishing and logging data from the SynTouch BioTac sensors.
+    This package contains the necessary libraries for reading, publishing and logging data from the SynTouch BioTac sensors.
+    This package is a catkinization of UPenn's biotac_stack contained in the Penn-haptics-bolt repository.
   </description>
   <license>BSD</license>
 
