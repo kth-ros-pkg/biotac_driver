@@ -9,7 +9,7 @@ import sys
 import cPickle
 from optparse import OptionParser
 import itertools
-import rosjson_time
+import rosjson_time.rosjson_time
 from biotac_sensors.msg import BioTacHand
 
 def main():
