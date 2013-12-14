@@ -9,8 +9,6 @@ catkin_package(
     CATKIN_DEPENDS rospy biotac_sensors rosjson_time rosbag
 )
 
-
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
-  DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}
-  FILES_MATCHING PATTERN "*.py"
+install(PROGRAMS scripts/parse_log_hdf5.py scripts/parse_log_json.py scripts/parse_log_pytable.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

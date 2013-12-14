@@ -6,7 +6,7 @@ from catkin_pkg.python_setup import generate_distutils_setup
 # fetch values from package.xml
 setup_args = generate_distutils_setup(
     packages=['biotac_logger'],
-    package_dir={'': 'nodes'},
+    scripts=['scripts/biotac_json_logger.py'],
     requires=['rospy']
 )
 
