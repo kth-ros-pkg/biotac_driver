@@ -33,7 +33,7 @@
 import roslib; roslib.load_manifest('biotac_logger')
 import rospy
 import os, sys
-import rosjson_time.rosjson_time
+import rosjson_time
 from types import *
 
 from std_msgs.msg import String
