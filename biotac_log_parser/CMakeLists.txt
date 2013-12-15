@@ -9,4 +9,6 @@ catkin_package(
     CATKIN_DEPENDS rospy biotac_sensors rosjson_time rosbag
 )
 
-install(PROGRAMS src/parse_log_hdf5.py src/parse_log_json.py src/parse_log_pytable.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(PROGRAMS scripts/parse_log_hdf5.py scripts/parse_log_json.py scripts/parse_log_pytable.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

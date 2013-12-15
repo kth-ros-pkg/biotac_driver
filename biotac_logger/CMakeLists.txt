@@ -9,4 +9,5 @@ catkin_package(
     CATKIN_DEPENDS rospy biotac_sensors rosjson_time
 )
 
-install(PROGRAMS nodes/biotac_json_logger.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(PROGRAMS scripts/biotac_json_logger.py 
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
