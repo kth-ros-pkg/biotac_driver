@@ -31,7 +31,7 @@ catkin_package(
 )
 
 add_executable(biotac_pub src/biotac.c src/cheetah.c src/biotac_hand_class.cpp src/biotac_pub.cpp)
-target_link_libraries(biotac_pub ${catkin_LIBRARIES})
+target_link_libraries(biotac_pub ${catkin_LIBRARIES} -ldl)
 add_dependencies(biotac_pub ${PROJECT_NAME}_gencpp)
 
 install(TARGETS biotac_pub
