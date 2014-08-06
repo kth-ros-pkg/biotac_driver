@@ -8,7 +8,7 @@ include(ExternalProject)
 ExternalProject_Add(cheetah_
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}
   DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/download
-  URL http://byte-haptics.no-ip.org:8010/downloads/biotac_resources/${TARBALL_NAME}.zip
+  URL http://csc.kth.se/~fevb/downloads/${TARBALL_NAME}.zip
   CONFIGURE_COMMAND ""
   BINARY_DIR ""
   BUILD_COMMAND ""
