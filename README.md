@@ -32,7 +32,7 @@ Download the package to the catkin workspace:
     cd ~/catkin_ws/src/
     git clone -b <ros_distro> https://github.com/kth-ros-pkg/biotac_driver.git
 
-Where `<ros-distro>` can be the **groovy** or **hydro** branch.
+Where `<ros-distro>` can be the **groovy**, **hydro**, or **indigo** branch.
 
 Otherwise you can use ROS's **wstool**:
 
