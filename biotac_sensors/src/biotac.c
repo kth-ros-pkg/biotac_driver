@@ -112,14 +112,15 @@ BioTac bt_cheetah_initialize(const bt_info *biotac, Cheetah *ch_handle)
     int count;
 
     // Find all the attached Cheetah devices
-  if(PRINT_ON) printf("Searching for Cheetah adapters...\n");
-     count = ch_find_devices_ext(nelem, ports, nelem, unique_ids);
-  if(PRINT_ON) printf("%d device(s) found:\n", count);
+    if(PRINT_ON) printf("Searching for Cheetah adapters...\n");
+    count = ch_find_devices_ext(nelem, ports, nelem, unique_ids);
+    
+    if(PRINT_ON) printf("%d device(s) found:\n", count);
     // Check the number of Cheetah devices found
     if (count == 0)
     {
         if(PRINT_ON) printf("Error: No Cheetah devices found!\n");
-      return BT_NO_CHEETAH_DETECTED;
+        return BT_NO_CHEETAH_DETECTED;
     }
     else if (count > nelem)
     {
@@ -451,7 +452,7 @@ bt_data* bt_configure_save_buffer(int number_of_samples)
 void bt_cheetah_collect_batch(Cheetah ch_handle, const bt_info *biotac, bt_data *data, BOOL print_flag)
 {
     int i, j;
-     int byte_shift = 2 + (MAX_BIOTACS_PER_CHEETAH * 2);            // 2 bytes of command + 2 bytes per BioTac data
+    int byte_shift = 2 + (MAX_BIOTACS_PER_CHEETAH * 2);            // 2 bytes of command + 2 bytes per BioTac data
     int spi_data_len;
     int number_of_samples_in_batch;
     u08 *bt_raw_data;
@@ -585,7 +586,7 @@ BioTac bt_save_buffer_data(const char *file_name, const bt_data *data, int num_s
     fclose(fp);
 
     if(PRINT_ON) printf("Saved data in %s\n", file_name);
-  return BT_OK;
+    return BT_OK;
 }
 
 
@@ -610,18 +611,18 @@ void bt_display_errors(BioTac bt_err_code)
     case BT_DATA_SIZE_TOO_SMALL:
         strcpy(error_str, "The number of samples is too small!");
         break;
-  case BT_NO_CHEETAH_DETECTED:
-    strcpy(error_str, "No Cheetah device detected!");
-    break;
-  case BT_UNABLE_TO_OPEN_CHEETAH:
-    strcpy(error_str, "Unable to open Cheetah device on current port.");
-    break;
-  case BT_UNABLE_TO_OPEN_FILE:
-    strcpy(error_str, "Cannot open output file.");
-    break;
-  default:
-    strcpy(error_str, "Unrecognized Biotac error encountered.");
-    break;
+    case BT_NO_CHEETAH_DETECTED:
+      strcpy(error_str, "No Cheetah device detected!");
+      break;
+    case BT_UNABLE_TO_OPEN_CHEETAH:
+      strcpy(error_str, "Unable to open Cheetah device on current port.");
+      break;
+    case BT_UNABLE_TO_OPEN_FILE:
+      strcpy(error_str, "Cannot open output file.");
+      break;
+    default:
+      strcpy(error_str, "Unrecognized Biotac error encountered.");
+      break;
     }
 
     if(PRINT_ON) printf("\nError: %s\n\n", error_str);
