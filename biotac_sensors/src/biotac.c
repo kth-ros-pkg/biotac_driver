@@ -97,16 +97,17 @@ double time_step;
 
 static int count = 0;
 
-
 //=========================================================================
 // INITIAILIZE CHEETAH FOR BIOTAC COMMUNICATION
 //=========================================================================
-BioTac bt_cheetah_initialize(const bt_info *biotac, Cheetah *ch_handle)
+BioTac bt_cheetah_initialize(u32 cheetah_serial_number, const bt_info *biotac, Cheetah *ch_handle)
 {
-      int mode = 0;
+    int mode = 0;
     u16 ports[16];
+    memset(ports, 0, sizeof(ports));
     u32 unique_ids[16];
-    int nelem = 1;
+    memset(unique_ids, 0, sizeof(unique_ids));
+    int nelem = 16;
 
     int i;
     int count;
@@ -122,15 +123,42 @@ BioTac bt_cheetah_initialize(const bt_info *biotac, Cheetah *ch_handle)
         if(PRINT_ON) printf("Error: No Cheetah devices found!\n");
         return BT_NO_CHEETAH_DETECTED;
     }
-    else if (count > nelem)
+    else if (count > 1)
     {
-        // the current version supports only one Cheetah device
-        if(PRINT_ON) printf("WARNING: The current version of software supports one Cheetah device\n");
-        count = nelem;
+        // If no valid serial number specified, 
+        if (cheetah_serial_number == 0)
+        {
+            // the current version supports only one Cheetah device
+            if(PRINT_ON) printf("WARNING: There are %d Cheetah device connected.  Please specify the `cheetah_serial_number` parameter.\n", count);
+            if(PRINT_ON) printf("Available Serial numbers:\n");
+            if(PRINT_ON) 
+            {
+		        for (i = 0; i < count; ++i)
+		        {
+		            printf("Port: %d\n", ports[i]);
+		            printf("Serial: %d\n", unique_ids[i]);
+		        }
+		        for (i = 0; i < nelem; ++i)
+		        {
+		            printf("T Port: %d\n", ports[i]);
+		            printf("T Serial: (%04d-%06d)\n", unique_ids[i]/1000000,
+		                   unique_ids[i]%1000000);
+		        }
+            }
+            count = 1;
+        }
     }
 
     for (i = 0; i < count; ++i)
     {
+        // Is a serial number specified?
+        // Is this index the correct device?
+        // If not, skip configuring this Cheetah
+        if (cheetah_serial_number != 0 && unique_ids[i] != cheetah_serial_number)
+        {
+            continue;
+        }
+        
         // Determine if the device is in-use
         const char *status = "(avail) ";
         if (ports[i] & CH_PORT_NOT_FREE)
@@ -149,7 +177,7 @@ BioTac bt_cheetah_initialize(const bt_info *biotac, Cheetah *ch_handle)
         *ch_handle = ch_open(ports[i]);
         if ((*ch_handle) <= 0)
         {
-            if(PRINT_ON) printf("Unable to open Cheetah device on port %d\n", ports[i]);
+            if(PRINT_ON) printf("Unable to open Cheetah device on port %d serial %u\n", ports[i], unique_ids[i]);
             if(PRINT_ON) printf("Error code = %d (%s)\n", (*ch_handle), ch_status_string((*ch_handle)));
             return BT_UNABLE_TO_OPEN_CHEETAH;
         }

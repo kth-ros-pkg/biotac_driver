@@ -105,14 +105,14 @@ BioTacHandClass::~BioTacHandClass()
 //This function will keep retrying to find BioTac/Cheetah
 //devices, every second
 //========================================================
-void BioTacHandClass::initBioTacSensors()
+void BioTacHandClass::initBioTacSensors(u32 cheetah_serial_number)
 {
   BioTac bt_err_code = BT_NO_CHEETAH_DETECTED;
   ros::Rate loop_rate_cheetah(1);
   //Initialize the Cheetah Device 
   while( bt_err_code < BT_OK && ros::ok())
   {
-    bt_err_code = bt_cheetah_initialize(&biotac_, &ch_handle_);
+    bt_err_code = bt_cheetah_initialize(cheetah_serial_number, &biotac_, &ch_handle_);
     if(bt_err_code < BT_OK)
     {
       displayErrors(bt_err_code);

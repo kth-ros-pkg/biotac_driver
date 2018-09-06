@@ -78,7 +78,7 @@ private:
 public:
   BioTacHandClass(string hand_id);
   ~BioTacHandClass();
-  void initBioTacSensors();
+  void initBioTacSensors(u32 cheetah_serial_number);
   biotac_sensors::BioTacHand collectBatch();
 };
 

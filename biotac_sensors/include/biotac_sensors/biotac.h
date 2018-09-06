@@ -224,7 +224,7 @@ typedef struct
 //==================================================//
 // Function Prototypes //
 //==================================================//
-BioTac 	bt_cheetah_initialize(const bt_info *biotac, Cheetah *ch_handle);
+BioTac 	        bt_cheetah_initialize(u32 cheetah_serial_number, const bt_info *biotac, Cheetah *ch_handle);
 BioTac 		bt_cheetah_get_properties(Cheetah ch_handle, int bt_select, bt_property *property);
 BioTac 		bt_cheetah_configure_batch(Cheetah ch_handle, bt_info *biotac, int num_samples);
 bt_data*	bt_configure_save_buffer(int num_samples);

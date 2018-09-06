@@ -71,10 +71,16 @@ int main(int argc, char** argv)
   }
   else //Start the node normally
   {
+    int cheetah_serial_number = 0;
+    ros::param::get("~cheetah_serial_number", cheetah_serial_number);
+
+    std::string biotac_name = "left_hand";
+    ros::param::get("~biotac_name", biotac_name);
+    
     //Name the BioTac hand that will be published
-    BioTacHandClass left_hand("left_hand");
+    BioTacHandClass left_hand(biotac_name);
     //Connect to and configure the sensors
-    left_hand.initBioTacSensors();
+    left_hand.initBioTacSensors(cheetah_serial_number);
 
     while(ros::ok())
     { //Collect a batch of data
