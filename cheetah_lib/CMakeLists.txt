@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cheetah_lib)
 
+find_package(catkin)
 set(CHEETAH_VERSION v3.05)
 set(TARBALL_NAME cheetah-library-${CHEETAH_VERSION})
 
